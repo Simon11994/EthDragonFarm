@@ -1,0 +1,24 @@
+.altcolor{
+    background-color:#eddede;
+    border-radius:15px;
+    margin-top:20px;
+    padding:20px;
+}
+.form-control {
+    display: inline-block;
+}
+
+.invis {
+    display: none;
+}
+
+.button-red {
+    background-color: #de5b5b;
+    border-color: #de5b5b;
+    color: #fff;
+}
+
+.navis {
+	font-size: 25px;
+	color: #c55a5a;
+}

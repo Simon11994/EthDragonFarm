@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://etherdragonfarm.net/favicon.png">
+
+    <title>Ether Dragon</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./jumbotron-narrow.css" rel="stylesheet">
+    <link href="./custom.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./interface.js"></script>
+    <script src="./main.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="snackbar"></div>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <!-- <li role="presentation"><a href="#" target="_blank"><i class="fab fa-telegram navis"></i></a></li> -->
+            <li role="presentation"><a href="https://discord.gg/3rBAQk3" target="_blank"><i class="fab fa-discord navis"></i></a></li>
+            <li role="presentation"><a href="https://etherscan.io/address/"><i class="fas fa-file-alt navis"></i></a></li>
+          </ul>
+        </nav>
+        <img src="./logo.png" style="height: 100px; width: 100px; float: left; padding: 10px 20px 30px 20px; opacity: 0.8;" /> 
+        <h3 class="text-muted">Ether Dragon Farm</h3>  <h4 class="text-muted">Crypto Idle Game</h4> 
+      </div>
+
+      <div class="jumbotron">
+            
+            <p class="lead"></p>
+            
+          <div class="row">  
+            <div class="col-md-6">
+            <div class="container altcolor" style="margin-right:10px">
+                <div class="row">
+                  <div>
+                      <img src="./dragon.png" width="150" height="150" alt="Dragon">
+                      
+                      </div>
+                  <div>
+                      <h2><span id="numdragon">0</span> Dragon</h2>
+                      <br>
+                      <h2>Producing <br><span id="production">0.0000</span> eggs per hour</h2>
+                  </div>
+                </div>
+                <div class="row">
+                    <input id="buyPremiumDragoninput" class="form-control" type="number" style=" margin-bottom: 10px; width: 130px" step="1" value="100" id="ethtospend">
+                    <br>
+                  <p style="text-align: center">
+                    <a id="getfreedragon" class="btn btn-lg btn-success invis" onclick="getFreeDragon(displayTransactionMessage)" role="button" style="display: inline-block;">Get 20 Free Dragons!</a>
+                    
+                    <a style="display: none" id="buyPremiumDragon" onclick="buyDragonInput();" class="btn btn-lg btn-success invis" role="button" style="display: inline-block;">Buy Additonal Dragons! (max  )</a>
+                    <h5>Fire Dragons Bought : <span id="boughtFireDragons">0</span></h5>
+                </p>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="container altcolor">
+              <div class="row">
+                <div>
+                    <img src="./icedragon.png" width="150" height="150" alt="Dragon">
+                    
+                    </div>
+                <div>
+                  <div id="iceDragonNotBought" class="row" style="margin: 10px;" >
+                    <h2> 0 Ice Dragons</h2>
+                    <h4> Ice Dragons produces 10 times more eggs than normal dragons.</h4>
+                    <br>
+                    
+                  </div>
+                  <div id="iceDragonBought" class="row" style="display: none; margin: 10px" >
+                    <h3><span id="numdragonice">0</span> Ice Dragon</h3>
+                    <br>
+                    <h2>Producing <span id="productionice">0.0000</span> eggs per hour</h2>
+                    
+                  </div>
+                  <div class="row" style="margin-top: 30px">
+                      <input id="buyIceDragonInput" class="form-control" type="number" style=" margin-bottom: 10px; width: 130px" onchange="updateIceBuyPrice()" step="1" value="10" id="ethtospend">
+                      <br>
+                      <p><a id="buyIceDragon" class="btn btn-lg btn-info invis" onclick="buyIceDragonInput()" role="button" style="display: inline-block;">Buy Ice Dragon! for </a></p>
+                  </div>
+                  <h5>Ice Dragons Bought : <span id="boughtIceDragons">0</span></h5>
+                </div>
+              </div>
+              
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <div class="container altcolor" style="margin-right: 10px">
+                <div class="row">
+                     <div>
+                          <img src="./dragon-egg.png" width="100" height="100" alt="Egg" style="opacity: 0.9; margin:25px;">
+                      </div>
+                      <div>
+                      <h2><span class="numeggs">0.0000</span> Eggs produced
+                      <br>
+                      </h2>
+                      </div>
+                </div>
+                <br><br>
+                  <div class="row">
+                      <p><a class="btn btn-lg btn-success" onclick="hatchEggs1(displayTransactionMessage)" role="button">Hatch <span id="hatchdragonquantity">0</span> Dragon</a>
+                      <a class="btn btn-lg button-red" onclick="sellEggs(displayTransactionMessage)" role="button" style="float: none;">Sell For <span id="sellprice">0</span></a></p>
+                </div>
+                <div class="row">
+                    <div></div>
+                    <div>
+                      
+                    </div>
+                </div>
+                  <div class="row">
+                      <div>
+                      </div>
+                      <div>
+                          <h4><span id="sellsforexample">(111754 eggs would sell for 2.86498)</span></h4>
+                      </div>
+                </div>
+            </div>
+          </div>
+
+                <div class="col-md-6">
+            <div class="container altcolor">
+              <div class="row">
+                <div>
+                    <img src="./golddragon.gif" width="200" height="200" alt="Dragon">
+                    
+                    </div>
+                <div>
+                  <div id="gold Dragon" class="row" style="margin: 15px;" >
+                    <h3> Gold Dragon</h3>
+                    <h4> 100x Speed. </h4>
+                      <h4>Comming Soon!  </h4>
+                    <h5>There will be only 1 Gold dragon in the whole game</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            </div>
+
+          
+        </div>
+          
+      </div>
+      
+
+     
+      <div class="row marketing">
+        <div class="col-md-6">
+          <h4>Earn Ethereum farming dragon!</h4>
+          <p>Ether Dragon Farm is the #1 dragon farming simulator and idle game on the blockchain. The more dragon you have, the more eggs they lay (each dragon lays at a rate of 1 per day). Hatch more dragon with your eggs to multiply your production, or cash them out for Ethereum!</p>
+
+
+          <h4>Powered by Metamask</h4>
+          <p>This game requires <a href="https://metamask.io/">Metamask</a></p>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Automated Market</h4>
+          <p>Ether Dragon Farm features a high tech automated market that lets you instantly buy or sell dragon eggs with a single transaction. Driven by supply and demand, the price automatically adjusts as players trade.</p>
+          
+            <h4>Referrals</h4>
+          <p>Earn <b>20%</b> the number of all eggs hatched by anyone who starts playing using your link: <a onclick="copyRef()" id="playerreflink">http://etherdragonfarm.net?ref=0x8261ccdc07ee2a4f77113ab0579994af0690aa24</a></p><a onclick="copyRef()" id="playerreflink">
+          
+        <input style="display:none;" type="text" value="Hello Worldfdgerh" id="copytextthing">
+        </a></div><a onclick="copyRef()" id="playerreflink">
+        
+      </a></div><a onclick="copyRef()" id="playerreflink">
+
+      <footer class="footer">
+      </footer>
+
+    </a></div><a onclick="copyRef()" id="playerreflink"> <!-- /container -->
+
+    <script>
+        main()
+    </script>
+  
+
+</a></body></html>
